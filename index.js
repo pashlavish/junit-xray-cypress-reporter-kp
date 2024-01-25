@@ -2,6 +2,8 @@
 const debug = require('debug')('junit-xray-reporter')
 const MochaJUnitReporter = require('../mocha-junit-reporter/index.js')
 
+// get to it
+
 class JUnitXrayReporter extends MochaJUnitReporter {
 	constructor(runner, options) {
 		super(runner, options)
