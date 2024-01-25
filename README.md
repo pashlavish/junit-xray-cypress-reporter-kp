@@ -1,6 +1,6 @@
 # junit-xray-cypress-reporter
 
-JUnit Xray Reporter is a custom reporter for use with [Mocha](https://mochajs.org/), [XRay](https://www.getxray.app/) (Native Test Management for Jira) and [Cypress](https://www.cypress.io/) testing frameworks.  
+range-jira-result is a custom reporter for use with [Mocha](https://mochajs.org/), [XRay](https://www.getxray.app/) (Native Test Management for Jira) and [Cypress](https://www.cypress.io/) testing frameworks.  
 The reporter helps you to integrate your Cypress/Mocha test with XRay easily by producing enriched JUnit-style XML test report files which can be uploaded into XRay with API or other tools.  
 The reporter is built on the top of [mocha-junit-reporter v2.2.0](https://www.npmjs.com/package/mocha-junit-reporter) so all the configurations in the official doc, are inherited from this npm package.  
 This reporter offers the ability to specify a Jira-Issue for each it{} inside your cypress test and creates a custom report that is easy to load into XRay.
@@ -10,13 +10,13 @@ This reporter offers the ability to specify a Jira-Issue for each it{} inside yo
 As a dev module:
 
 ```shell
-$ npm install junit-xray-cypress-reporter --save-dev
+$ npm install range-jira-result --save-dev
 ```
 
 or as a global module:
 
 ```shell
-$ npm install -g junit-xray-cypress-reporter
+$ npm install -g range-jira-result
 ```
 
 ## Configuration
@@ -53,19 +53,19 @@ Every other {reporterOptions} explained here: [mocha-junit-reporter v2.2.0](http
 
 ## Example
 
-1. Install 'junit-xray-cypress-reporter' to the cypress project
+1. Install 'range-jira-result' to the cypress project
 
 ```shell
-$ npm install junit-xray-cypress-reporter --save-dev
+$ npm install range-jira-result --save-dev
 ```
 
-2. Configure 'junit-xray-cypress-reporter' as the reporter and do other configurations as necessary. Configurations can be done in the cypress.config.js or in the command line.  
+2. Configure 'range-jira-result' as the reporter and do other configurations as necessary. Configurations can be done in the cypress.config.js or in the command line.  
    Add this to cypress.config.js
 
 ```shell
 const { defineConfig } = require("cypress");
 module.exports = defineConfig({
-  reporter: "junit-xray-cypress-reporter",
+  reporter: "range-jira-result",
   reporterOptions: {
     mochaFile: "cypress/results/my-test-output-[hash].xml"
   },
