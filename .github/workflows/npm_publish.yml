@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 21
 
       - name: Configure Git
         run: |
@@ -31,25 +31,10 @@ jobs:
       - name: Bump version
         run: npm version ${{ github.event.inputs.version }}
 
-      - name: Log npm version
-        run: npm --version
-
-      - name: Log npm config
-        run: npm config list
-
-      - name: Set npm registry
-        run: npm config set registry https://registry.npmjs.org/
-
-      - name: Install latest npm
-        run: npm install -g npm@latest
-
-      - name: NPM Login (Interactive)
-        run: npm login
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          interactive: true
-
-      - name: Publish to NPM
-        run: npm publish --verbose
+      - name: Set npm registry and publish with token
+        run: |
+          npm config set registry https://registry.npmjs.org/
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
