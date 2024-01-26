@@ -1,4 +1,4 @@
-name: Manual Trigger Workflow
+name: Publish to NPM
 
 on:
   workflow_dispatch:
@@ -31,9 +31,7 @@ jobs:
       - name: Bump version
         run: npm version ${{ github.event.inputs.version }}
 
-      - name: Set npm registry and publish with token
-        run: |
-          npm config set registry https://registry.npmjs.org/
-          npm publish
+      - name: Publish to NPM
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
