@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 21
+          node-version: 14
 
       - name: Configure Git
         run: |
@@ -30,6 +30,11 @@ jobs:
 
       - name: Bump version
         run: npm version ${{ github.event.inputs.version }}
+
+      - name: Authenticate with npm
+        run: npm adduser --registry https://registry.npmjs.org/
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Publish to NPM
         run: npm publish
