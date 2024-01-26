@@ -43,6 +43,14 @@ jobs:
       - name: Install latest npm
         run: npm install -g npm@latest
 
+      - name: NPM Login
+        run: npm login
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_USERNAME: ${{ secrets.NPM_USERNAME }}
+          NPM_PASSWORD: ${{ secrets.NPM_PASSWORD }}
+          NPM_EMAIL: ${{ secrets.NPM_EMAIL }}
+
       - name: Publish to NPM
         run: npm publish --verbose
         env:
