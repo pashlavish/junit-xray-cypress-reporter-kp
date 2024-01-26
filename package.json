@@ -18,9 +18,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pashlavish/junit-xray-cypress-reporter-kp.git"
+    "url": "https://github.com/pashlavish/junit-xray-cypress-reporter-kp.git"
     "publishConfig": {
-      "registry": "https://npm.pkg.github.com"
+      "registry": "https://github.com/pashlavish/junit-xray-cypress-reporter-kp.git"
     }
   },
   "bugs": {
