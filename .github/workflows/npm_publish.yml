@@ -31,8 +31,10 @@ jobs:
       - name: Bump version
         run: npm version ${{ github.event.inputs.version }}
 
-      - name: Authenticate with npm
-        run: npm adduser --registry https://registry.npmjs.org/
+      - name: Set npm token
+        run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Publish to NPM
         run: npm publish
